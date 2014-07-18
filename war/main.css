@@ -1,0 +1,23 @@
+body{
+	font-family: Verdana, Helvita, sans-serif;
+	background-color: #333333;
+	color: #DDDDDD;
+	
+/* 	text-align: centre; */
+}
+
+a, a:link{
+	color: aqua;
+}
+
+a, a:visited{
+	color: #AA11AA;
+}
+
+a, a:active{
+	color: orange;
+}
+
+a, a:hover{
+	color: fuchsia;
+}
