@@ -1,17 +1,16 @@
 package com.google.gwt.sample.guestbook.client;
 
-import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.user.client.Random;
 
 
-public class CanvasRandom extends CanvasExt
+public class CanvasRandom extends CanvasCustom
 {
     /**
      * @param canvas
      */
-    public CanvasRandom( Canvas canvas )
+    public CanvasRandom()
     {
-        super( canvas );
+//        super( canvas );
         x = WIDTH/2;
         y = HEIGHT/2;
     }
@@ -34,7 +33,7 @@ public class CanvasRandom extends CanvasExt
 
     private void randomUpdateCoord()
     {
-        x = x + (Random.nextInt(coordVector) - (colorVector/2));
+        x = x + (Random.nextInt(coordVector) - (COLOUR_INCREMENT_VECTOR/2));
         if( x < 0 ){
             x = 0;
         }
@@ -42,7 +41,7 @@ public class CanvasRandom extends CanvasExt
             x = WIDTH;
         }
 
-        y = y + (Random.nextInt(coordVector) - (colorVector/2));
+        y = y + (Random.nextInt(coordVector) - (COLOUR_INCREMENT_VECTOR/2));
         if( y < 0 ){
             y = 0;
         }

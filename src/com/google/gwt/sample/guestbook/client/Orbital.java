@@ -121,13 +121,20 @@ public class Orbital
 
     public void setDragCoefficient( double milliDragCoefficient )
     {
-        if( milliDragCoefficient > 10 ){
-            milliDragCoefficient = 10;
+        if( milliDragCoefficient > 0.9999 ){
+        	dragCoefficient = 0.9999;
         }
-        if( milliDragCoefficient < 0 ){
-            milliDragCoefficient = 0;
+        else if( milliDragCoefficient < 0.9900 ){
+        	dragCoefficient = 0.9900;
         }
-        dragCoefficient = 0.990 + (milliDragCoefficient / 1000);
+        else{
+        	dragCoefficient = milliDragCoefficient;
+        }
+    }
+
+    public double getDragCoefficient()
+    {
+    	return dragCoefficient;
     }
 
     public void setInverseForce( boolean isInversed )

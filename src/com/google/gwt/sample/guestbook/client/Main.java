@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class Main implements EntryPoint
 {
-    static final String ROOT_ELEMENT = "container";
+    static final String ROOT_ELEMENT = "root_element";
 
     /* (non-Javadoc)
      * @see com.google.gwt.core.client.EntryPoint#onModuleLoad()
@@ -14,7 +14,8 @@ public class Main implements EntryPoint
     @Override
     public void onModuleLoad()
     {
-//      Document.get().getBody().appendChild( canvas );
-        RootPanel.get(ROOT_ELEMENT).add( new MainMenu().getRoot() );
+        TheOrbiter orbiter = new TheOrbiter();
+    	RootPanel.get(ROOT_ELEMENT).add( orbiter );
+    	orbiter.setEnabled( true );
     }
 }

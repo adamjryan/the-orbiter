@@ -1,12 +1,11 @@
 package com.google.gwt.sample.guestbook.client;
 
-import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.canvas.dom.client.CssColor;
 import com.google.gwt.sample.guestbook.client.Orbital.Mass;
 import com.google.gwt.sample.guestbook.client.Orbital.OrbitalObserver;
 
 
-public class CanvasOrbital extends CanvasExt implements OrbitalObserver
+public class CanvasOrbital extends CanvasCustom implements OrbitalObserver
 {
     public enum PaintEffect{
         PARTICULAR,
@@ -20,14 +19,16 @@ public class CanvasOrbital extends CanvasExt implements OrbitalObserver
     private Mass[] bodies;
     private double[] coord = new double[2];
 
-    /**
-     * @param canvas
-     */
-    public CanvasOrbital( Canvas canvas, Orbital orbital )
+
+    public void setOrbital( Orbital orbital )
     {
-        super(canvas);
-        this.orbital = orbital;
+    	if( orbital != null ){
+//        	orbital.removeObserver();
+        	//TODO Clear existing.
+        }
+    	this.orbital = orbital;
         bodies = orbital.getBodies();
+        orbital.addObserver( this );
         init();
     }
 
@@ -51,6 +52,14 @@ public class CanvasOrbital extends CanvasExt implements OrbitalObserver
 
     public void setPaintEffect( PaintEffect newEffect )
     {
+    	if( effect == PaintEffect.PARTICULAR  &&  newEffect != PaintEffect.PARTICULAR ){
+    		//Clear the particle pixels before the next effect is painted otherwise the next effect will not correctly erase it.
+            context.beginPath();
+            context.setFillStyle( backgoundColour );
+            context.fillRect( x, y, 3, 3 );
+            context.stroke();
+            context.closePath();
+    	}
         effect = newEffect;
     }
 

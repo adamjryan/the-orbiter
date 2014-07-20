@@ -47,11 +47,4 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>com.google.gwt.eclipse.core.gwtNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/build.xml</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/utils/build.xml</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

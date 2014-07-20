@@ -1,0 +1,12 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+	xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:gc="urn:import:com.google.gwt.canvas.client"
+	>
+	
+	<g:HTMLPanel>
+    	<gc:Canvas ui:field="canvas" />
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 
